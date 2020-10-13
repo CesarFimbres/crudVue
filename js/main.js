@@ -76,8 +76,8 @@ methods:{
             )
           }
         });
-    },
-    btnBorrar:function(id, nombre, cliente){
+	  },
+	  btnBorrar:function(id, nombre, cliente){
         Swal.fire({
           title: '¿Está seguro de borrar el registro: '+id+'- '+cliente+' '+nombre+'?',
           type: 'warning',
@@ -96,6 +96,23 @@ methods:{
           }
         })
     },
+    btnRepo:function(id, nombre, cliente){
+        Swal.fire({
+          title: '¿Desea generar el reporte\n '+id+'- '+nombre+' de '+cliente+'?',
+          type: 'question',
+          showCancelButton: true,
+          confirmButtonColor:'#f57f17',
+          cancelButtonColor:'#9e9e9e',
+          confirmButtonText: 'Reporte'
+        }).then((result) => {
+          if (result.value) {
+            //this.borrarTablero(id);
+            //TODO: Llamar reporte y enviar los comandos del criterio ID
+          }
+        })
+    },
+
+
     
     //*PROCEDIMIENTOS aqui estan las funciones que envian parametros para realiar el crud
     //Procedimiento READ o consultar
