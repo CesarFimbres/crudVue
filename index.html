@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="css/style.css" />
 
 	<!-- //*Iconos Font awesome -->
-	<script src="js/7a23168b1e.js" crossorigin="anonymous"></script>
+	<scrlipt src="js/7a23168b1e.js" crossorigin="anonymous"></scrlipt>
 
 	<title>CRUD s/VueJS</title>
 </head>
@@ -53,27 +53,38 @@
 				<div class="col-lg-12">
 					<table class="table table-striped">
 						<thead>
-							<tr class="bg-info text-light">
-								<th>#</th>
-								<th>CLIETNE</th>
-								<th>PROYECTO</th>
-								<th>TABLERO</th>
-								<th>ÚLTIMA IMPRESIÓN</th>
-								<th class="text-center">-</th>
+							<tr class="bg-dark text-light">
+								<th>ID</th>
+								<th>Nombre</th>
+								<th>Cliente</th>
+								<th>Proyecto</th>
+								<th>Impreso</th>
+								<th>Opciones</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr v-for="(tablero,indice) of tableros">
 								<td>{{tablero.id}}</td>
+								<td>{{tablero.nombre}}</td>
 								<td>{{tablero.cliente}}</td>
 								<td>{{tablero.proyecto}}</td>
-								<td>{{tablero.nombre}}</td>
 								<td>{{tablero.printed}}</td>
+								<!--   //TODO: Control para campos nuemricos
+                                <td>
+                                    <div class="col-md-8">
+                                    <input type="number" v-model.number="tablero.stock" class="form-control text-right" disabled>      
+                                    </div>    
+                                </td>
+                                 -->
 								<td>
-									<div>
-										<button class="btn btn-info" title="Generar reporte"
-											@click="btnRepo(tablero.id, tablero.nombre, tablero.cliente, tablero.proyecto)">
-											<i class="fas fa-print"></i>
+									<div class="btn-group" role="group">
+										<button class="btn btn-primary" title="Editar"
+											@click="btnEditar(tablero.id, tablero.nombre, tablero.cliente, tablero.proyecto)">
+											<i class="fas fa-pencil-alt"></i>
+										</button>
+										<button class="btn btn-danger" title="Eliminar"
+											@click="btnBorrar(tablero.id, tablero.nombre, tablero.cliente, tablero.proyecto)">
+											<i class="fas fa-trash-alt"></i>
 										</button>
 									</div>
 								</td>

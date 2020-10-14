@@ -29,7 +29,7 @@ switch ($option) {
         $resultado->execute();
         break;
     case 4:
-        $consulta = "SELECT id, nombre, cliente, proyecto, printed FROM tablero ORDER BY id DESC LIMIT 7";
+        $consulta = "SELECT id, nombre, cliente, proyecto FROM tablero ORDER BY id DESC LIMIT 7";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -40,6 +40,14 @@ switch ($option) {
         $resultado->execute();
         $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
         break;
+
+        // case 6:
+        //     // Recibir el objeto e insertar respuestas
+        //     $consulta = "INSERT INTO inspeccion (valor, tag, idtablero ) VALUES('$valor', '$tag', '$idtablero') ";
+        //     $resultado = $conexion->prepare($consulta);
+        //     $resultado->execute();
+        //     break;
+
 }
 
 print json_encode($data, JSON_UNESCAPED_UNICODE);

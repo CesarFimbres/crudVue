@@ -9,9 +9,8 @@
         <style> { #asset styles.css @encoding=utf8 } </style> -->
 
 		<script>
-			let params = new URLSearchParams(location.search);
-			var p = params.get("value");
-			alert("El id del protocolo es:" + p);
+			let idTablero= sessionStorage.getItem('idTablero');
+			console.log("Tablero seleccionado: "+idTablero);
 		</script>
 
 		<title>Protocolo estadarizado</title>
@@ -22,7 +21,7 @@
 			<div class="title">
 				<div class="left">
 					<!-- <img src="{#asset ita.png @encoding=dataURI}" style="width:100%; max-width:300px;" /> -->
-					<img src="../_repoHTML/img/ita.png" alt="Logo ita" />
+					<img src="img/ita.png" alt="Logo ita" />
 				</div>
 				<div class="center">
 					<h2 class="text-center red-d3">CONCENTRACIÓN 01</h2>
@@ -36,7 +35,7 @@
 					<p class="grey-d3">Protocolo ejecutado: <strong>29/09/2020</strong></p>
 					<p>3F 4H 60Hz 480vCA</p>
 					<p>-</p>
-					<p>Revisó: <strong>Ing. Héctor Torres</strong></p>
+					<p>Revisó: <strong>Ing. César Fimbres</strong></p>
 					<p class="text-center bg-green">
 						<strong>APROBADO</strong>
 					</p>
