@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- //*Hojas de estilo -->
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/sweetalert2.css" />
+		<link rel="stylesheet" href="css/style.css" />
+
+		<!-- //*Iconos Font awesome -->
+		<script src="js/7a23168b1e.js" crossorigin="anonymous"></script>
+
+		<style>
+			/** Configuracion globo de los link a redes sociales*/
+			.social_footer_ul {
+				display: table;
+				margin: 15px auto 0 auto;
+				list-style-type: none;
+			}
+
+			.social_footer_ul li {
+				padding-right: 20px;
+				padding-left: 20px;
+				padding-top: 10px;
+				float: left;
+			}
+
+			.social_footer_ul li a {
+				color: #ccc;
+				border: 1px solid #ccc;
+				padding: 8px;
+				border-radius: 50%;
+			}
+
+			.social_footer_ul li i {
+				width: 20px;
+				height: 20px;
+				text-align: center;
+			}
+
+			.b-dash {
+				border: 1px dashed red;
+			}
+		</style>
+
+		<title>Protocolo estandarizado</title>
+	</head>
+
+	<body>
+		<header>
+			<nav class="bg-secondary">
+				<ul class="nav justify-content-end">
+					<li class="nav-item">
+						<a class="nav-link text-light" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light" href="aForm.html">Protocolo</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light" href="reporte.html">Reportes</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="container mt-5">
+			<h1 class="mt-n3">Reporte de pruebas</h1>
+		</div>
+
+		<div id="app">
+			<div class="container">
+				<div class="row mt-3">
+					<div class="offset-8 col-4">
+						<input
+							type="text"
+							class="form-control"
+							placeholder="Ingrese criterio de busqueda"
+							v-on:keyup="encuentraTablero"
+							v-model="busca"
+						/>
+					</div>
+				</div>
+
+				<div class="row mt-1 mb-5">
+					<div class="col-lg-12">
+						<table class="table table-striped">
+							<thead>
+								<tr class="bg-danger text-light">
+									<th>#</th>
+									<th>CLIETNE</th>
+									<th>PROYECTO</th>
+									<th>TABLERO</th>
+									<th>ÚLTIMA IMPRESIÓN</th>
+									<th class="text-center">-</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="(tablero,indice) of tableros">
+									<td>{{tablero.id}}</td>
+									<td>{{tablero.cliente}}</td>
+									<td>{{tablero.proyecto}}</td>
+									<td>{{tablero.nombre}}</td>
+									<td>{{tablero.printed}}</td>
+									<td>
+										<div>
+											<button
+												class="btn btn-outline-dark"
+												title="Generar reporte"
+												@click="btnRepo(tablero.id, tablero.nombre, tablero.cliente, tablero.proyecto)"
+											>
+												<i
+													class="far fa-file-pdf"
+													style="color: #b30903"
+												></i>
+											</button>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- fin app -->
+
+		<!-- TODO: Cargar links a las paginas de redes sociales  -->
+		<footer class="bg-secondary pt-4">
+			<div class="container bd-highlight mb-3">
+				<div class="row">
+					<div class="col col-4 p-2 font-weight-normal text-white-50">
+						<h5 class="mb-3 text-white">Contacto</h5>
+						<p class="m-0 pb-0 font-weight-bold text-white-50">
+							Instalaciones Tecnológicas Aplicadas,
+						</p>
+						<p class="m-0 pb-4">
+							<span class="font-italic"> parte de gropo INTECSA </span>
+						</p>
+						<p class="m-0 pb-0">
+							<i class="fa fa-location-arrow"></i> Av. Prol. Vasco de Quiroga 1247,
+						</p>
+						<p class="m-0 pb-3">Santa Fé, 01210, CDMX</p>
+						<p><i class="fa fa-phone"></i> (+52) 55-769-06058 ext. 118</p>
+						<p><i class="fa fa fa-envelope"></i> contacto@grupointecsa.com</p>
+					</div>
+
+					<div class="col col-5 p-2 font-weight-light text-white-50">
+						<h5 class="text-white text-center">Acerca de nosotros</h5>
+						<p class="m-0 p-3 text-justify">
+							Somos distribuidores, integradores y proveedores autorizados ABB,
+							Ofrecemos soluciones a su necesidad en el ramo eléctrico, nuestros
+							clientes abarcan centros comerciales, hospitales, fábricas y otras
+							industrias.
+						</p>
+						<p class="p-3 text-justify">
+							Tenemos la capacidad de proyectar, diseñar, canalizar e instalar todo lo
+							referente a media y baja tensión. Además de analizadores de redes
+							(Calidad de la energía), Filtros de armónicos y pruebas a tableros
+							eléctricos.
+						</p>
+					</div>
+
+					<div class="col col-3 p-2 text-right">
+						<h5 class="mb-3 text-white">Enlases relacionados</h5>
+						<ul class="">
+							<p class="m-0 pb-2">
+								<a
+									class="font-weight-light text-white-50"
+									href="http://www.dof.gob.mx/nota_detalle.php?codigo=5280607&fecha=29/11/2012"
+									class="font-weight-normal"
+									>Norma oficial Méxicana</a
+								>
+							</p>
+							<p class="m-0 pb-2">
+								<a
+									class="font-weight-light text-white-50"
+									href="https://new.abb.com/mx"
+									class="font-weight-normal"
+									>Componentes eléctricos ABB</a
+								>
+							</p>
+							<p class="m-0 pb-2">
+								<a
+									class="font-weight-light text-white-50"
+									href="https://alcione.mx/"
+									class="font-weight-normal"
+									>Componentes eléctricos ALCIONE</a
+								>
+							</p>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="d-flex flex-column justify-content-center">
+				<div class="d-flex justify-content-around">
+					<ul class="list-group list-group-horizontal">
+						<li class="list-inline-item">
+							<a href="index.html" class="font-weight-bold text-light">Home</a>
+						</li>
+						<li class="list-inline-item ml-5">
+							<a href="aForm.html" class="font-weight-bold text-light">Registro</a>
+						</li>
+						<li class="list-inline-item ml-5 mr-5">
+							<a href="protocolo.html" class="font-weight-bold text-light"
+								>Protocolos</a
+							>
+						</li>
+						<li class="list-inline-item">
+							<a href="reporte.html" class="font-weight-bold text-light">Reportes</a>
+						</li>
+					</ul>
+				</div>
+				<!--foote_bottom_ul_amrc ends here-->
+				<p class="font-weight-light text-white-50 text-center m-1">
+					<a href="http://itamx.com/" class="text-light"
+						>Instalaciones Tecnológicas Aplicadas</a
+					>
+					| Copyright @2020
+				</p>
+
+				<div class="d-flex justify-content-center">
+					<ul class="list-group list-group-horizontal mb-4 social_footer_ul">
+						<li>
+							<a href="http://webenlance.com"><i class="fab fa-facebook-f"></i></a>
+						</li>
+						<li>
+							<a href="http://webenlance.com"><i class="fab fa-twitter"></i></a>
+						</li>
+						<li>
+							<a href="http://webenlance.com"><i class="fab fa-linkedin"></i></a>
+						</li>
+						<li>
+							<a href="http://webenlance.com"><i class="fab fa-instagram"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+
+		<!-- //*Carga de los script UX -->
+		<script src="js/jquery-3.5.1.min.js"></script>
+		<script src="js/popper.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/sweetalert2.js"></script>
+
+		<!-- //*Script Vue -->
+		<!-- production version, optimized for size and speed -->
+		<script src="js/vue.js"></script>
+
+		<!-- //*Conexion Axios -->
+		<script src="js/axios.js"></script>
+
+		<!-- //*Script personalizado -->
+		<script src="js/main.js"></script>
+	</body>
+</html>

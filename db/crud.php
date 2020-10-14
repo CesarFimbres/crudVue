@@ -29,7 +29,7 @@ switch ($option) {
         $resultado->execute();
         break;
     case 4:
-        $consulta = "SELECT id, nombre, cliente, proyecto FROM tablero ORDER BY id DESC LIMIT 7";
+        $consulta = "SELECT id, nombre, cliente, proyecto, printed FROM tablero ORDER BY id DESC LIMIT 7";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
